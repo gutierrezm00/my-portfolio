@@ -4,10 +4,36 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// ROUTING
+import {BrowserRouter} from 'react-router-dom'
+
+// REDUX
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import {combineReducers} from 'redux'
+
+let initialState = {
+
+}
+
+let reducer = (state = initialState, action) => {
+  switch(action.type){
+    default:
+      return state
+  }
+}
+
+let storeObj = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={storeObj}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
